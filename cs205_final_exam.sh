@@ -15,3 +15,25 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+var1=0
+var2=0
+var3=0
+input=$1
+while read -r line
+do
+	awk '{print $(NF)}'
+	if [[ line == 'False' ]];
+	then
+		var1=2
+	#	#var1=$((var1+1))
+	fi
+	echo "$line"
+	#var1=$((var1+1))
+done < "$input"
+
+echo ======= SUMMARY OF POKEMON.DAT ======
+echo    Total Non-Legendary Pokemon: $var1
+echo    Avg. HP: [VALUE]
+echo    Avg. Defense: [VALUE]
+echo ======= END SUMMARY =======
